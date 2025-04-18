@@ -1,0 +1,13 @@
+# Ignoring additional files from compiling tex files
+*.aux 
+*.bbl
+*.log
+*.out
+*.bbl
+*.fdb_latexmk
+*.fls
+*.toc
+*.swp
+*.swo
+*.blg
+*.synctex.gz
