@@ -3,24 +3,24 @@ jobs:
         runs-on: ubuntu-latest
 
         steps:
-        - name: Checkout code
-        uses: actions/checkout@v2
+            - name: Checkout code
+              uses: actions/checkout@v2
 
-        - name: Set up Python
-        uses: actions/setup-python@v2
-        with:
-            python-version: '3.8'
+            - name: Set up Python
+              uses: actions/setup-python@v2
+              with:
+              python-version: '3.8'
 
-        - name: Install dependencies
-        run: |
-            pip install gspread google-auth oauth2client
+            - name: Install dependencies
+              run: |
+                  pip install gspread google-auth oauth2client
 
-        - name: Fetch Google Sheets data and update LaTeX
-        run: |
-            python fetch_google_sheets.py
-        env:
-            GOOGLE_SHEETS_CREDENTIALS: ${{ secrets.GOOGLE_SHEETS_CREDENTIALS }}
+            - name: Fetch Google Sheets data and update LaTeX
+              run: |
+                  python fetch_google_sheets.py
+              env:
+                  GOOGLE_SHEETS_CREDENTIALS: ${{ secrets.GOOGLE_SHEETS_CREDENTIALS }}
 
-        - name: Compile LaTeX with latexmk
-        run: |
-            latexmk -pdf main.tex
+            - name: Compile LaTeX with latexmk
+              run: |
+                  latexmk -pdf main.tex
