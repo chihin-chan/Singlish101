@@ -1,3 +1,12 @@
+name: Update LaTeX Document
+
+on:
+    push:
+        branches:
+            - main
+        paths:
+            - '**/*.tex'
+            - '**/*.py'
 jobs:
     update_latex:
         runs-on: ubuntu-latest
