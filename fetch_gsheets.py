@@ -13,7 +13,7 @@ credentials = Credentials.from_service_account_info(credentials_info)
 client = gspread.authorize(credentials)
 
 # Open the sheet by name
-spreadsheet = client.open('Your Google Sheet Name')
+spreadsheet = client.open('Singlish 101 (Responses)')
 
 # Access the first sheet
 worksheet = spreadsheet.get_worksheet(0)
