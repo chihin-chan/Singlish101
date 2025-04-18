@@ -7,6 +7,9 @@ on:
         paths:
             - '**/*.tex'
             - '**/*.py'
+    workflow_dispatch:
+
+
 jobs:
     update_latex:
         runs-on: ubuntu-latest
