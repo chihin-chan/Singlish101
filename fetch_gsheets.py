@@ -8,11 +8,8 @@ import re
 SCOPES = ['https://www.googleapis.com/auth/spreadsheets',  # Access Google Sheets
           'https://www.googleapis.com/auth/drive']        # Access Google Drive (needed for accessing files)
 
-# Load credentials from JSON file
-with open('../../../../chihin/Downloads/opportune-balm-457323-u7-e2d9b8780653.json', 'r') as file:
-   credentials_info = json.load(file)  # Use json.load to read the JSON file
 # Load credentials from environment variable
-# credentials_info = json.loads(os.getenv('GOOGLE_SHEETS_CREDENTIALS'))
+credentials_info = json.loads(os.getenv('GOOGLE_SHEETS_CREDENTIALS'))
 
 # Authenticate with Google Sheets API using the service account credentials
 credentials = Credentials.from_service_account_info(credentials_info, scopes=SCOPES)
@@ -46,23 +43,36 @@ new_entries = list(gsheet_set - tex_set)
 # Filter new_entries to only those not already in the LaTeX file
 unique_entries = [entry for entry in new_entries if entry not in existing_items]
 
-
-# If there are new entries, insert them before the first \item
-if new_entries:
-
+if unique_entries:
     insert_position = tex_content.find('\\item')
     new_tex = ""
-
-    for sg, uk, author in new_entries:
-        new_tex += f"    \\item \\textit{{{sg}}} - {uk} ({author})\n"
-        tex_content = tex_content[:insert_position] + new_tex + tex_content[insert_position:]
+    for sg, uk, author in unique_entries:
+        new_tex += f"\\item \\textit{{{sg}}} - {uk} ({author})\n"
+    tex_content = tex_content[:insert_position] + new_tex + tex_content[insert_position:]
 
     with open(gsheets_tex, 'w') as file:
         file.write(tex_content)
 
-    print(f"Added {(new_entries)} new entries.")
+    print(f"Added {len(unique_entries)} new entries.")
 else:
     print("No new entries to add.")
+
+# If there are new entries, insert them before the first \item
+# if new_entries:
+# 
+#     insert_position = tex_content.find('\\item')
+#     new_tex = ""
+# 
+#     for sg, uk, author in new_entries:
+#         new_tex += f"    \\item \\textit{{{sg}}} - {uk} ({author})\n"
+#         tex_content = tex_content[:insert_position] + new_tex + tex_content[insert_position:]
+# 
+#     with open(gsheets_tex, 'w') as file:
+#         file.write(tex_content)
+# 
+#     print(f"Added {(new_entries)} new entries.")
+# else:
+#     print("No new entries to add.")
 
 
 # Access the first sheet
