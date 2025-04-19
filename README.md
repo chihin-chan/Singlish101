@@ -2,7 +2,7 @@
 
 A repository for documenting translations between common phrases spoken in the Singlish and UK English language.
 
-This document is integrated with [Google forms](https://docs.google.com/forms/d/1xC0B0aKq7cU7MXO0mhMt-IBiMesHfgXJaLT6TNtVGuc/edit), in which a GitHub CI checks for new entries and is added in `Chaptermate/gsheets.tex`.
+This document is integrated with [Google forms](https://docs.google.com/forms/d/1xC0B0aKq7cU7MXO0mhMt-IBiMesHfgXJaLT6TNtVGuc/edit), in which a GitHub CI checks for new entries and adds them into `Chaptermate/gsheets.tex`.
 
 The GitHub CI has been instructed to check for new entries every 10 minutes, however, it seems to be entirely random at times - any feedback is greatly appreciated.
 
