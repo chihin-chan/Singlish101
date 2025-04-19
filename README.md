@@ -1,6 +1,9 @@
 # Singlish-UKEnglish 101: Siao ah, you alright?!
 
-![alt text](Cover/Figures/cover.png)
+<p align="center">
+  <img src="Cover/Figures/cover.png" width="300" />
+</p>
+
 
 A repository for documenting translations between common phrases spoken in the Singlish and UK English language.
 
