@@ -43,6 +43,10 @@ tex_set = set(existing_items)
 # Determine what entries are new
 new_entries = list(gsheet_set - tex_set)
 
+# Filter new_entries to only those not already in the LaTeX file
+unique_entries = [entry for entry in new_entries if entry not in existing_items]
+
+
 # If there are new entries, insert them before the first \item
 if new_entries:
 
