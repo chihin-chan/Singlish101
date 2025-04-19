@@ -7,12 +7,9 @@ import re
 # Outline scopes
 SCOPES = ['https://www.googleapis.com/auth/spreadsheets',  # Access Google Sheets
           'https://www.googleapis.com/auth/drive']        # Access Google Drive (needed for accessing files)
-# Load credentials from JSON file
-with open('../../../../chihin/Downloads/opportune-balm-457323-u7-e2d9b8780653.json', 'r') as file:
-    credentials_info = json.load(file)  # Use json.load to read the JSON file
 
 # Load credentials from environment variable
-# credentials_info = json.loads(os.getenv('GOOGLE_SHEETS_CREDENTIALS'))
+credentials_info = json.loads(os.getenv('GOOGLE_SHEETS_CREDENTIALS'))
 
 # Authenticate with Google Sheets API using the service account credentials
 credentials = Credentials.from_service_account_info(credentials_info, scopes=SCOPES)
