@@ -48,8 +48,9 @@ jobs:
 
                 if ! git diff --cached --quiet; then
                     git add main.pdf
-                    CHANGES=$(git diff Chaptermate/gsheets.tex | grep '^+\\item' | sed 's/^+ *//')
-                    echo -e "Add new LaTeX entries:\n$CHANGES" > commit_msg.txt
+                    CHANGES=$(git diff Chaptermate/gsheets.tex | grep '^[+]\s*\\item' | sed 's/^+ *//')
+                    echo -e "Add new LaTeX entries:\n$CHANGES" | tee commit_msg.txt
+
                     git commit -F commit_msg.txt
                     git push
                 else
