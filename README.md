@@ -1,5 +1,7 @@
 # Singlish-UKEnglish 101: Siao ah, you alright?!
 
+![alt text](Cover/Figures/cover.png)
+
 A repository for documenting translations between common phrases spoken in the Singlish and UK English language.
 
 This document is integrated with [Google forms](https://docs.google.com/forms/d/1xC0B0aKq7cU7MXO0mhMt-IBiMesHfgXJaLT6TNtVGuc/edit), in which a GitHub CI checks for new entries and adds them into `Chaptermate/gsheets.tex`.
